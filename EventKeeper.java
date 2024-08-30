@@ -6,8 +6,8 @@ public class EventKeeper {
         do{
 
             System.out.println("====MAIN MENU====");
-            System.out.println("[1]. Option 1: Greet");
-            System.out.println("[2]. Option 2: Perform Addition");
+            System.out.println("[1]. Option 1: Gret");
+            System.out.println("[2]. Option 2: Addition");
             System.out.println("[3]. Option 3: Exit");
             System.out.println("=======================");
             Thread.sleep(100);
@@ -17,6 +17,7 @@ public class EventKeeper {
             switch (choice) {
                 case 1:
                 System.out.print("\u001B[2J\u001B[0;0H");
+                
                 Greet(scanner);
                 break;
                 case 2:
@@ -40,6 +41,7 @@ public class EventKeeper {
         
     }
 
+
     private static void Greet(Scanner scanner){
         scanner.nextLine();
         System.out.println("\n\n====ENTER YOUR NAME: ");
@@ -58,5 +60,7 @@ public class EventKeeper {
         
 
     }
+
+    
 
 }
