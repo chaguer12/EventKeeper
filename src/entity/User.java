@@ -1,3 +1,4 @@
+package entity;
 public class User {
     
     private  Int Id;
