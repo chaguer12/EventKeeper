@@ -4,6 +4,8 @@ public class Admin extends User {
     private String password;
     private User user;
 
+
+
     public String getPassword(){
         return this.password;
     }

@@ -5,6 +5,9 @@ public class User {
     private String name;
     private boolean role;
 
+
+
+
     public int getId(){
         return this.id;
     }

@@ -1,5 +1,7 @@
 package com.event.GUI;
 
+import com.event.entities.Event;
+import com.event.services.EventService;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Scanner;
@@ -29,7 +31,15 @@ public class AdminMenu {
             scanner.nextLine();
             switch (choice){
                 case 1:
-                    System.out.println("\t\tcreating...");
+                    System.out.println("====\tENTER EVENT NAME:\t====");
+                    String eventName = scanner.nextLine();
+                    System.out.println("====\tENTER EVENT LOCATION:\t====");
+                    String eventLocation = scanner.nextLine();
+                    System.out.println("====\tENTER EVENT DATE:\t====");
+                    String eventDate = scanner.nextLine();
+                    Event event = new Event(eventName, eventLocation, eventDate);
+                    EventService.addEvent(event);
+                    System.out.println("\t\tCREATING!..." + event);
                     break;
                 case 2:
                     System.out.println("\t\tupdating...");
@@ -38,7 +48,7 @@ public class AdminMenu {
                     System.out.println("\t\tdeleting...");
                     break;
                     case 4:
-                        System.out.println("\t\tshowing...");
+                        EventService.showEvents();
                         break;
                 case 5:
                     System.out.println("\t\tsearching...");
