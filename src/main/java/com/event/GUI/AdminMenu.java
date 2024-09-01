@@ -1,10 +1,12 @@
 package com.event.GUI;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.Scanner;
 
 public class AdminMenu {
 
-    public static void AdminGUI(Scanner scanner)throws Exception{
+    public static void AdminGUI(@NotNull Scanner scanner)throws Exception{
         do{
             int choice;
 
@@ -56,7 +58,7 @@ public class AdminMenu {
         }while(true);
 
     }
-    public static void ParticipantGUI(Scanner scanner)throws Exception{
+    public static void ParticipantGUI(@NotNull Scanner scanner)throws Exception{
         do{
             int choice;
             System.out.println("====\tCHOOSE YOUR OPTION:\t====");
@@ -77,7 +79,7 @@ public class AdminMenu {
 
     }
 
-    public static void ManageParticipantGUI(Scanner scanner)throws Exception{
+    public static void ManageParticipantGUI(@NotNull Scanner scanner)throws Exception{
         do{
             int choice;
             System.out.println("====\tCHOOSE YOUR OPTION:\t====");
