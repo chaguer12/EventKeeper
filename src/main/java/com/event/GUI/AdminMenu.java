@@ -42,6 +42,16 @@ public class AdminMenu {
                     System.out.println("\t\tCREATING!..." + event);
                     break;
                 case 2:
+                    System.out.println("====\tENTER EVENT ID:\t====");
+                    int eventId = scanner.nextInt();
+                    scanner.nextLine();
+                    System.out.println("====\tENTER EVENT'S NEW NAME:\t====");
+                    String name = scanner.nextLine();
+                    System.out.println("====\tENTER EVENT'S NEW LOCATION:\t====");
+                    String location = scanner.nextLine();
+                    System.out.println("====\tENTER EVENT'S NEW DATE:\t====");
+                    String date = scanner.nextLine();
+                    EventService.updateEvent(eventId,name,location,date);
                     System.out.println("\t\tupdating...");
                     break;
                 case 3:
