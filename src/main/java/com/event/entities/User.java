@@ -1,12 +1,17 @@
 package com.event.entities;
 
 public class User {
+    private static int idStarter = 0;
     private int id;
     private String name;
     private boolean role;
 
 
-
+    public User(String name, boolean role) {
+        this.id = idStarter++;
+        this.name = name;
+        this.role = role;
+    }
 
     public int getId(){
         return this.id;

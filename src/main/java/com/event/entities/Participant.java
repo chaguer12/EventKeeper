@@ -1,17 +1,15 @@
 package com.event.entities;
 
 public class Participant extends User{
-    private User user;
+    public Participant(String name){
+        super(name,false);
+    }
 
-    public Participant() {
-        super();
+    @Override
+    public String toString() {
+        return String.format("Particpant{id='%d', name='%s', role='%s'}",getId(),getName(),getRole());
     }
 
 
-    public User getUser(){
-        return this.user;
-    }
-    public void setUser(User user){
-        this.user = user;
-    }
+
 }

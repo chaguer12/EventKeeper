@@ -1,7 +1,9 @@
 package com.event.GUI;
 
 import com.event.entities.Event;
+import com.event.entities.Participant;
 import com.event.services.EventService;
+import com.event.services.ParticipantService;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Scanner;
@@ -73,31 +75,13 @@ public class AdminMenu {
                     break;
                 case 7:
                     System.out.println("\t\tmore options...");
+                    Thread.sleep(1000);
+                    ManageParticipantGUI(scanner);
                     break;
                 default:
                     System.out.println("====\tINVALID CHOICE\t====");
                     break;
             }
-
-        }while(true);
-
-    }
-    public static void ParticipantGUI(@NotNull Scanner scanner)throws Exception{
-        do{
-            int choice;
-            System.out.println("====\tCHOOSE YOUR OPTION:\t====");
-            Thread.sleep(300);
-            System.out.println("\t\t[1] option: Register for an Event");
-            Thread.sleep(300);
-            System.out.println("\t\t[2] option: Unsubscribe from an Event");
-            Thread.sleep(300);
-            System.out.println("\t\t[3] option: Show Events");
-            Thread.sleep(300);
-            System.out.println("\t\t[4] option: Show Registered Events");
-            Thread.sleep(300);
-            System.out.println("\t\t[6] option: Exit");
-            choice = scanner.nextInt();
-            scanner.nextLine();
 
         }while(true);
 
@@ -121,16 +105,29 @@ public class AdminMenu {
             scanner.nextLine();
             switch(choice){
                 case 1:
+                    System.out.println("====\tENTER PARTICIPANT'S FULL NAME:\t====");
+                    String name = scanner.nextLine();
+                    Participant participant = new Participant(name);
+                    ParticipantService.addParticipant(participant);
                     System.out.println("\t\tcreating...");
                     break;
                 case 2:
+                    System.out.println("====\tENTER PARTICIPANT'S ID:\t====");
+                    int participantId = scanner.nextInt();
+                    System.out.println("====\tENTER PARTICIPANT'S NEW FULL NAME:\t====");
+                    String newName = scanner.nextLine();
+                    ParticipantService.updateParticipant(participantId,newName);
                     System.out.println("\t\tupdating...");
                     break;
                 case 3:
+                    System.out.println("====\tENTER PARTICIPANT'S ID:\t====");
+                    int id = scanner.nextInt();
+                    ParticipantService.deleteParticipant(id);
                     System.out.println("\t\tdeleting...");
                     break;
                 case 4:
                     System.out.println("\t\tshowing...");
+                    ParticipantService.showParticipants();
                     break;
                 case 5:
                     MainGUI.Menu();
