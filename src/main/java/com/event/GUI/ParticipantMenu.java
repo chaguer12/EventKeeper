@@ -1,6 +1,7 @@
 package com.event.GUI;
 
 import com.event.entities.Event;
+import com.event.entities.Inscription;
 import com.event.entities.Participant;
 import com.event.services.EventService;
 import com.event.services.InscriptionService;
@@ -44,8 +45,9 @@ public class ParticipantMenu {
                         System.out.println("\t====CHOOSE DESIRED EVENT:====\t");
                         int id = scanner.nextInt();
                         Event event = EventService.findEvent(id);
-                        InscriptionService.register(participant, event);
-                        System.out.println("\t====YOU ARE REGISTERED====\t");
+                        System.out.println(event +"" + participant);
+                        Inscription inscription =InscriptionService.register(participant, event);
+                        System.out.println("\t====YOU'RE INSCRIPTION:\t" + inscription);
 
                     }else{
                         System.out.println("\t====PARTICIPANT NOT REGISTERED!====");

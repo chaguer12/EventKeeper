@@ -12,6 +12,10 @@ public class Inscription {
         this.event = event;
 
     }
+    @Override
+    public String toString(){
+        return String.format("Inscription {id = %d, participant = %s, event = %s}", id, participant, event);
+    }
 
     public int getId() {
         return id;

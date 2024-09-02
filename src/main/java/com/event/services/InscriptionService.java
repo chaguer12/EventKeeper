@@ -10,14 +10,17 @@ import java.util.List;
 public class InscriptionService {
     private static List<Inscription> inscriptions = new ArrayList<Inscription>();
 
-    public static void register(Participant participant, Event event) {
+    public static Inscription register(Participant participant, Event event) {
         boolean found = inscriptions.stream().anyMatch(inscription -> inscription.getParticipant().equals(participant) && inscription.getEvent().equals(event));
         if (!found) {
             inscriptions.add(new Inscription(participant, event));
+
         }else{
             System.out.println("\t=====Participant " + participant.getName() + " already exists");
         }
-
+        Inscription newInscription = new Inscription(participant, event);
+        inscriptions.add(newInscription);
+        return newInscription;
 
 
     }
