@@ -41,6 +41,14 @@ public class ParticipantService {
         }
         return null;
     }
+    public static Participant findParticipantByName(String fullName){
+        for(Participant participant : participants){
+            if(participant.getName().equals(fullName)){
+                return participant;
+            }
+        }
+        return null;
+    }
     public static boolean updateParticipant(int id,String newName) {
         Participant participant = findParticipant(id);
         if(participant != null){

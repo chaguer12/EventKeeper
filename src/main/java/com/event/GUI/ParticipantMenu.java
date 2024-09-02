@@ -56,6 +56,17 @@ public class ParticipantMenu {
                     break;
                 case 2:
                     //unsubscribe
+                    System.out.println("\t====ENTER YOUR FULL NAME====\t");
+                    String FullName = scanner.nextLine();
+                    Participant Target_prtcpnt = ParticipantService.findParticipantByName(FullName);
+                    if(Target_prtcpnt != null){
+                        InscriptionService.showInscriptions(Target_prtcpnt);
+                        InscriptionService.unregister(Target_prtcpnt);
+                    }else{
+                        System.out.println("\t====PARTICIPANT NOT REGISTERED!====");
+                    }
+
+
                     break;
                 case 3:
                     EventService.showEvents();
@@ -65,7 +76,8 @@ public class ParticipantMenu {
                     break;
                 case 5:
                     MainGUI.Menu();
-
+                default:
+                    System.out.println("====\tINVALID CHOICE!\t====");
             }
 
 

@@ -137,6 +137,8 @@ public class AdminMenu {
                     break;
                 case 5:
                     MainGUI.Menu();
+                default:
+                    System.out.println("====\tINVALID CHOICE!\t====");
             }
         }while(true);
     }

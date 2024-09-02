@@ -27,9 +27,25 @@ public class InscriptionService {
     public List<Inscription> getInscriptions() {
         return inscriptions;
     }
-    public static void unregister(Participant participant, Event event) {
-        inscriptions.removeIf(inscription -> inscription.getParticipant().equals(participant) && inscription.getEvent().equals(event));
+    public static void unregister(Participant participant) {
+        inscriptions.removeIf(inscription -> inscription.getParticipant().equals(participant));
+        System.out.println("\t=====Participant " + participant.getName() + " has been unregistered from events");
     }
+
+    public static void showInscriptions(Participant participant) {
+        boolean found = inscriptions.stream().anyMatch(inscription -> inscription.getParticipant().equals(participant));
+        if (!found){
+            for(Inscription inscription : inscriptions){
+                if(inscription.getParticipant().equals(participant)){
+                    System.out.println("===="+inscription);
+                }else{
+                    System.out.println("====NO INSCRIPTION FOUND");
+                }
+            }
+
+        }
+    }
+    // i need to add function that shows inscriptions of a participant
 
 
 }
