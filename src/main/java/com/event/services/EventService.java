@@ -46,6 +46,18 @@ public class EventService {
         }
 
 
+
+
+    }
+    public static boolean  deleteEvent(int id){
+        Event event = findEvent(id);
+        if(event != null){
+            events.remove(event);
+            return true;
+        }else {
+            System.out.println("====\tEVENT NOT FOUND");
+        }
+        return false;
     }
 
 

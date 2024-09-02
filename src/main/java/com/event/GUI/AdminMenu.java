@@ -55,6 +55,10 @@ public class AdminMenu {
                     System.out.println("\t\tupdating...");
                     break;
                 case 3:
+                    System.out.println("====\tENTER EVENT ID:\t====");
+                    int targetedEvent = scanner.nextInt();
+                    scanner.nextLine();
+                    EventService.deleteEvent(targetedEvent);
                     System.out.println("\t\tdeleting...");
                     break;
                     case 4:
