@@ -33,6 +33,7 @@ public class MainGUI {
                     break;
                 case 2:
                     System.out.println("you are a participant");
+                    ParticipantMenu.ParticipantGUI(scanner);
                     break;
                 case 3:
                     scanner.close();

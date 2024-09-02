@@ -70,7 +70,6 @@ public class AdminMenu {
                     System.out.println("\t\tsearching...");
                     break;
                 case 6:
-                    scanner.close();
                     MainGUI.Menu();
                     break;
                 case 7:

@@ -8,6 +8,13 @@ import java.util.List;
 public class ParticipantService {
     private static List<Participant> participants = new ArrayList<>();
 
+    public static boolean validateParticipant(String fullname){
+        if(participants.contains(fullname)){
+            return true;
+        }
+        return false;
+
+    }
     public static void addParticipant(Participant participant) {
         participants.add(participant);
         System.out.println("Participant added: " + participant);
