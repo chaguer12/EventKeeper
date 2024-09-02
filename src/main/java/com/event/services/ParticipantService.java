@@ -4,16 +4,14 @@ import com.event.entities.Participant;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 public class ParticipantService {
     private static List<Participant> participants = new ArrayList<>();
-
-    public static boolean validateParticipant(String fullname){
-        if(participants.contains(fullname)){
-            return true;
-        }
-        return false;
-
+    //needs to be fixed
+    public static Participant validateParticipant(String fullname){
+        Optional <Participant> participant = participants.stream().filter(i -> i.getName().equals(fullname)).findFirst();
+        return participant.orElse(null);
     }
     public static void addParticipant(Participant participant) {
         participants.add(participant);

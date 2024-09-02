@@ -36,7 +36,7 @@ public class MainGUI {
                     ParticipantMenu.ParticipantGUI(scanner);
                     break;
                 case 3:
-                    scanner.close();
+                    System.exit(0);
                     System.out.println("====\tBYE BYE !\t====");
                     return;
                 default:

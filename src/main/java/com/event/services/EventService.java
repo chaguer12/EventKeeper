@@ -1,6 +1,8 @@
 package com.event.services;
 
 import com.event.entities.Event;
+import org.jetbrains.annotations.Nullable;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -11,9 +13,9 @@ public class EventService {
         events.add(event);
         System.out.println("Event added: " + event);
     }
-    public static List<Event> getEvents() {
-        return events;
-    }
+        public static List<Event> getEvents() {
+            return events;
+        }
     public static void showEvents() {
         if(events.isEmpty()){
             System.out.println("====\tNO EVENTS FOUND\t====");
@@ -23,7 +25,7 @@ public class EventService {
             }
         }
     }
-    private static  Event findEvent(int id){
+    public static  Event findEvent(@Nullable int id){
         for (Event event : events){
             if(event.getId() == id){
                 return event;
@@ -32,6 +34,8 @@ public class EventService {
 
         return null;
     }
+
+
     public static boolean  updateEvent(int id ,String newName, String newLocation, String newDate){
         Event target = EventService.findEvent(id);
         if(target != null){

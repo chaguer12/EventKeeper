@@ -1,7 +1,9 @@
 package com.event.GUI;
 
+import com.event.entities.Event;
 import com.event.entities.Participant;
 import com.event.services.EventService;
+import com.event.services.InscriptionService;
 import com.event.services.ParticipantService;
 import org.jetbrains.annotations.NotNull;
 
@@ -32,12 +34,18 @@ public class ParticipantMenu {
                 case 1:
                     System.out.println("\t====ENTER YOUR FULL NAME====\t");
                     String fullName = scanner.nextLine();
-                    if(ParticipantService.validateParticipant(fullName)){
+                    Participant participant = ParticipantService.validateParticipant(fullName);
+                    if(participant != null){
                         System.out.println("\t====WELCOME DEAR PARTICIPANT");
                         Thread.sleep(500);
                         System.out.println("\t====SHOWING AVAILABLE EVENTS...!====\t");
                         Thread.sleep(300);
                         EventService.showEvents();
+                        System.out.println("\t====CHOOSE DESIRED EVENT:====\t");
+                        int id = scanner.nextInt();
+                        Event event = EventService.findEvent(id);
+                        InscriptionService.register(participant, event);
+                        System.out.println("\t====YOU ARE REGISTERED====\t");
 
                     }else{
                         System.out.println("\t====PARTICIPANT NOT REGISTERED!====");
@@ -54,7 +62,6 @@ public class ParticipantMenu {
                     //show subscriptions
                     break;
                 case 5:
-                    scanner.close();
                     MainGUI.Menu();
 
             }

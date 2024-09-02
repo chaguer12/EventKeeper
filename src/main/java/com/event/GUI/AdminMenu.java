@@ -63,11 +63,15 @@ public class AdminMenu {
                     EventService.deleteEvent(targetedEvent);
                     System.out.println("\t\tdeleting...");
                     break;
-                    case 4:
-                        EventService.showEvents();
-                        break;
+                case 4:
+                    EventService.showEvents();
+                    break;
                 case 5:
                     System.out.println("\t\tsearching...");
+                    EventService.showEvents();
+                    System.out.println("====\tENTER AN ID OF AN EVENT:\t====");
+                    int id = scanner.nextInt();
+                    EventService.findEvent(id);
                     break;
                 case 6:
                     MainGUI.Menu();
@@ -111,14 +115,17 @@ public class AdminMenu {
                     System.out.println("\t\tcreating...");
                     break;
                 case 2:
+                    ParticipantService.showParticipants();
                     System.out.println("====\tENTER PARTICIPANT'S ID:\t====");
                     int participantId = scanner.nextInt();
+                    scanner.nextLine();
                     System.out.println("====\tENTER PARTICIPANT'S NEW FULL NAME:\t====");
                     String newName = scanner.nextLine();
                     ParticipantService.updateParticipant(participantId,newName);
                     System.out.println("\t\tupdating...");
                     break;
                 case 3:
+                    ParticipantService.showParticipants();
                     System.out.println("====\tENTER PARTICIPANT'S ID:\t====");
                     int id = scanner.nextInt();
                     ParticipantService.deleteParticipant(id);
