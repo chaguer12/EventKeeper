@@ -3,6 +3,7 @@ package com.event.GUI;
 import com.event.entities.Event;
 import com.event.entities.Participant;
 import com.event.services.EventService;
+import com.event.services.InscriptionService;
 import com.event.services.ParticipantService;
 import org.jetbrains.annotations.NotNull;
 
@@ -104,7 +105,9 @@ public class AdminMenu {
             Thread.sleep(300);
             System.out.println("\t\t[4] option: Show participants");
             Thread.sleep(300);
-            System.out.println("\t\t[5] option: Exit");
+            System.out.println("\t\t[5] option: Show Inscriptions");
+            Thread.sleep(300);
+            System.out.println("\t\t[6] option: Exit");
             choice = scanner.nextInt();
             scanner.nextLine();
             switch(choice){
@@ -137,6 +140,15 @@ public class AdminMenu {
                     ParticipantService.showParticipants();
                     break;
                 case 5:
+                    System.out.println("====\tSHOWING EVENTS...:\t====");
+                    EventService.showEvents();
+                    System.out.println("====\tENTER AN ID OF AN EVENT:\t====");
+                    int eventID = scanner.nextInt();
+                    Event eventInscriptions = EventService.findEvent(eventID);
+                    System.out.println("\t\tShowing ...");
+                    InscriptionService.showInscriptions(eventInscriptions);
+                    break;
+                case 6:
                     MainGUI.Menu();
                 default:
                     System.out.println("====\tINVALID CHOICE!\t====");
