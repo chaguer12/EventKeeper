@@ -5,6 +5,7 @@ import com.event.entities.Participant;
 import com.event.services.EventService;
 import com.event.services.InscriptionService;
 import com.event.services.ParticipantService;
+import com.event.services.ReportService;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Scanner;
@@ -108,6 +109,7 @@ public class AdminMenu {
             System.out.println("\t\t[5] option: Show Inscriptions");
             Thread.sleep(300);
             System.out.println("\t\t[6] option: Exit");
+            System.out.println("====\tCLICK 7 FOR REPORT:\t====");
             try{
                 choice = scanner.nextInt();
                 scanner.nextLine();
@@ -154,6 +156,9 @@ public class AdminMenu {
                     break;
                 case 6:
                     MainGUI.Menu();
+                case 7:
+                    ReportService.Report();
+
                 default:
                     System.out.println("====\tINVALID CHOICE!\t====");
             }

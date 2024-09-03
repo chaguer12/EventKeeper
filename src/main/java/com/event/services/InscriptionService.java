@@ -56,6 +56,15 @@ public class InscriptionService {
             }
         }
     }
+    public static void TotalInscriptions() {
+
+            for(Inscription inscription : inscriptions){
+
+                    System.out.println("===="+inscription);
+
+            }
+
+    }
 
 
 }
