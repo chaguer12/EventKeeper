@@ -72,7 +72,14 @@ public class ParticipantMenu {
                     EventService.showEvents();
                     break;
                 case 4:
-                    //show subscriptions
+                    System.out.println("\t====ENTER YOUR FULL NAME====\t");
+                    String member = scanner.nextLine();
+                    Participant Participant = ParticipantService.findParticipantByName(member);
+                    if(Participant != null){
+                        InscriptionService.showInscriptions(Participant);
+                    }else{
+                        System.out.println("====\tPARTICIPANT NOT REGISTERED TO ANY EVENT!\t====");
+                    }
                     break;
                 case 5:
                     MainGUI.Menu();
