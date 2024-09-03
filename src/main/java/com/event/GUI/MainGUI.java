@@ -7,7 +7,7 @@ public class MainGUI {
     public static void Menu()throws Exception {
         do{
             String password = "P@$$w0rd";
-            int choice;
+            int choice = 0;
             System.out.println("====\tWELCOME TO EVENT_KEEPER!\t====");
             Thread.sleep(500);
             System.out.println("====\tCHOOSE YOUR OPTION:\t====");
@@ -17,11 +17,15 @@ public class MainGUI {
             System.out.println("\t\t[2] option: Participant");
             Thread.sleep(300);
             System.out.println("\t\t[3] option: Exit");
-            choice = scanner.nextInt();
+            try{
+                choice = scanner.nextInt();
+                scanner.nextLine();
+            }catch(Exception e){
+                scanner.nextLine();
+            }
             switch (choice) {
                 case 1:
                     System.out.println("====\tENTER ADMIN PASSWORD:\t====");
-                    scanner.nextLine();
                     String EnteredPass = scanner.nextLine();
                     if(EnteredPass.equals(password)) {
                         System.out.println("Access granted. You are an administrator.");
@@ -36,8 +40,8 @@ public class MainGUI {
                     ParticipantMenu.ParticipantGUI(scanner);
                     break;
                 case 3:
-                    System.exit(0);
                     System.out.println("====\tBYE BYE !\t====");
+                    System.exit(0);
                     return;
                 default:
                     System.out.println("====\tINVALID CHOICE\t====");

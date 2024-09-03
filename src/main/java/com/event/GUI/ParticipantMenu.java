@@ -16,7 +16,7 @@ import java.util.Scanner;
 public class ParticipantMenu {
     public static void ParticipantGUI(@NotNull Scanner scanner)throws Exception{
         do{
-            int choice;
+            int choice = 0;
             System.out.println("====\tCHOOSE YOUR OPTION:\t====");
             Thread.sleep(300);
             System.out.println("\t\t[1] option: Register for an Event");
@@ -28,9 +28,13 @@ public class ParticipantMenu {
             System.out.println("\t\t[4] option: Show Registered Events");
             Thread.sleep(300);
             System.out.println("\t\t[5] option: Exit");
-            choice = scanner.nextInt();
-            scanner.nextLine();
 
+            try{
+                choice = scanner.nextInt();
+                scanner.nextLine();
+            }catch(Exception e){
+                scanner.nextLine();
+            }
             switch (choice) {
                 case 1:
                     System.out.println("\t====ENTER YOUR FULL NAME====\t");
@@ -45,7 +49,7 @@ public class ParticipantMenu {
                         System.out.println("\t====CHOOSE DESIRED EVENT:====\t");
                         int id = scanner.nextInt();
                         Event event = EventService.findEvent(id);
-                        System.out.println(event +"" + participant);
+                        System.out.println(event +" "+ participant);
                         Inscription inscription =InscriptionService.register(participant, event);
 
 

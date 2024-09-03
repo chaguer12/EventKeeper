@@ -13,14 +13,15 @@ public class InscriptionService {
     public static Inscription register(Participant participant, Event event) {
         boolean found = inscriptions.stream().anyMatch(inscription -> inscription.getParticipant().equals(participant) && inscription.getEvent().equals(event));
         if (!found) {
-            inscriptions.add(new Inscription(participant, event));
-
+            Inscription inscription = new Inscription(participant, event);
+            inscriptions.add(inscription);
+            return inscription;
         }else{
             System.out.println("\t=====Participant " + participant.getName() + " already exists");
+            return null;
         }
-        Inscription newInscription = new Inscription(participant, event);
-        inscriptions.add(newInscription);
-        return newInscription;
+
+
 
 
     }
@@ -37,7 +38,7 @@ public class InscriptionService {
         if (found){
             for(Inscription inscription : inscriptions){
                 if(inscription.getParticipant().equals(participant)){
-                    System.out.println("===="+inscription);
+                    System.out.println("====\t"+inscription);
                 }
             }
 

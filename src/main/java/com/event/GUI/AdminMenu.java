@@ -94,7 +94,7 @@ public class AdminMenu {
 
     public static void ManageParticipantGUI(@NotNull Scanner scanner)throws Exception{
         do{
-            int choice;
+            int choice =0;
             System.out.println("====\tCHOOSE YOUR OPTION:\t====");
             Thread.sleep(300);
             System.out.println("\t\t[1] option: Add participant");
@@ -108,8 +108,12 @@ public class AdminMenu {
             System.out.println("\t\t[5] option: Show Inscriptions");
             Thread.sleep(300);
             System.out.println("\t\t[6] option: Exit");
-            choice = scanner.nextInt();
-            scanner.nextLine();
+            try{
+                choice = scanner.nextInt();
+                scanner.nextLine();
+            }catch(Exception e){
+                scanner.nextLine();
+            }
             switch(choice){
                 case 1:
                     System.out.println("====\tENTER PARTICIPANT'S FULL NAME:\t====");
