@@ -14,7 +14,7 @@ public class AdminMenu {
 
     public static void AdminGUI(@NotNull Scanner scanner)throws Exception{
         do{
-            int choice;
+            int choice = 0;
 
             System.out.println("====\tCHOOSE YOUR OPTION:\t====");
             Thread.sleep(300);
@@ -31,8 +31,13 @@ public class AdminMenu {
             System.out.println("\t\t[6] option: Exit");
             Thread.sleep(500);
             System.out.println("====\tCLICK 7 FOR MORE OPTIONS:\t====");
-            choice = scanner.nextInt();
-            scanner.nextLine();
+            
+            try{
+                choice = scanner.nextInt();
+                scanner.nextLine();
+            }catch(Exception e){
+                scanner.nextLine();
+            }
             switch (choice){
                 case 1:
                     System.out.println("====\tENTER EVENT NAME:\t====");
