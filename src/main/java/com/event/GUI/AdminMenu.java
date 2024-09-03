@@ -71,7 +71,8 @@ public class AdminMenu {
                     EventService.showEvents();
                     System.out.println("====\tENTER AN ID OF AN EVENT:\t====");
                     int id = scanner.nextInt();
-                    EventService.findEvent(id);
+                    Event SearchedEvent = EventService.findEvent(id);
+                    System.out.println(SearchedEvent);
                     break;
                 case 6:
                     MainGUI.Menu();

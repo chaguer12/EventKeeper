@@ -45,9 +45,16 @@ public class InscriptionService {
             System.out.println("====NO INSCRIPTION FOUND");
         }
     }
-//    public static void showInscriptions(Event event) {
-//        boolean found = inscriptions.stream().anyMatch(inscription -> inscription.getEvent().equals(event));
-//    }
+    public static void showInscriptions(Event event) {
+        boolean found = inscriptions.stream().anyMatch(inscription -> inscription.getEvent().equals(event));
+        if (found){
+            for(Inscription inscription : inscriptions){
+                if(inscription.getEvent().equals(event)){
+                    System.out.println("===="+inscription);
+                }
+            }
+        }
+    }
 
 
 }
