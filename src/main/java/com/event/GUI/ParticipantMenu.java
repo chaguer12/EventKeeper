@@ -47,7 +47,7 @@ public class ParticipantMenu {
                         Event event = EventService.findEvent(id);
                         System.out.println(event +"" + participant);
                         Inscription inscription =InscriptionService.register(participant, event);
-                        System.out.println("\t====YOU'RE INSCRIPTION:\t" + inscription);
+
 
                     }else{
                         System.out.println("\t====PARTICIPANT NOT REGISTERED!====");

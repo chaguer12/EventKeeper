@@ -34,18 +34,20 @@ public class InscriptionService {
 
     public static void showInscriptions(Participant participant) {
         boolean found = inscriptions.stream().anyMatch(inscription -> inscription.getParticipant().equals(participant));
-        if (!found){
+        if (found){
             for(Inscription inscription : inscriptions){
                 if(inscription.getParticipant().equals(participant)){
                     System.out.println("===="+inscription);
-                }else{
-                    System.out.println("====NO INSCRIPTION FOUND");
                 }
             }
 
+        }else{
+            System.out.println("====NO INSCRIPTION FOUND");
         }
     }
-    // i need to add function that shows inscriptions of a participant
+//    public static void showInscriptions(Event event) {
+//        boolean found = inscriptions.stream().anyMatch(inscription -> inscription.getEvent().equals(event));
+//    }
 
 
 }
