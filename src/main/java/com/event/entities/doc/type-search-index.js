@@ -1,0 +1,1 @@
+typeSearchIndex = [{"p":"com.event.entities","l":"Admin"},{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"com.event.entities","l":"Event"},{"p":"com.event.entities","l":"Inscription"},{"p":"com.event.entities","l":"Participant"},{"p":"com.event.entities","l":"User"}];updateSearchResults();
